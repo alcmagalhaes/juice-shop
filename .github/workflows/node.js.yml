@@ -20,7 +20,7 @@ jobs:
     - name: Running Horusec Scan
       run: |
         mkdir reports
-        horusec start -p="./" --output-format='text' --json-output-file="./reports/horusec_report.txt"
+        horusec start -p="./" -i=".**" --log-level='error' --output-format='text' --json-output-file="./reports/horusec_report.txt"
         
     - name: Upload Horusec Report
       uses: actions/upload-artifact@v2
