@@ -18,6 +18,7 @@ jobs:
         curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
         
     - name: Running Horusec Scan
+      run: |
         mkdir reports
         horusec start -p="./" --output-format='text' --json-output-file="./reports/horusec_report.txt"
         
