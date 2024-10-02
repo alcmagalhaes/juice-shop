@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20.x]
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
     - uses: actions/checkout@v4
@@ -26,7 +26,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
+    
     - name: Run Snyk to check for vulnerabilities
-      uses: snyk/actions/dotnet@master
+      uses: snyk/actions/node@master
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
